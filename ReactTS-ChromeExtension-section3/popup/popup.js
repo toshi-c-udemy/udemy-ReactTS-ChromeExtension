@@ -12,6 +12,7 @@ function updateTime() {
       seconds = `${60 - (res.timer % 60)}`.padStart(2, '0');
     }
     time.textContent = `${minutes}:${seconds}`;
+    startTimerBtn.textContent = res.isRunning ? 'Pause Timer' : 'Start Timer'
   });
 }
 
@@ -68,7 +69,6 @@ function renderTask(taskNum) {
   text.className = 'task-input';
   text.addEventListener('change', () => {
     tasks[taskNum] = text.value;
-    console.log(tasks);
     saveTasks();
   });
 
