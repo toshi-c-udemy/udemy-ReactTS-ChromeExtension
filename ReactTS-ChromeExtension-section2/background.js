@@ -4,6 +4,7 @@ chrome.alarms.create({
 
 chrome.alarms.onAlarm.addListener((alarm) => {
   chrome.storage.local.get(['timer', 'isRunning'], (res) => {
+    console.log('background');
     const time = res.timer ?? 0;
     const isRunning = res.isRunning ?? true;
     if (!isRunning) {

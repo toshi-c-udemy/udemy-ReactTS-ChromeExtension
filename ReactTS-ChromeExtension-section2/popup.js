@@ -3,6 +3,8 @@ const nameElement = document.getElementById('name');
 const timerElement = document.getElementById('timer');
 
 function updateTimeElements() {
+  console.log('popup');
+
   chrome.storage.local.get(['timer'], (res) => {
     const time = res.timer ?? 0;
     timerElement.textContent = `The timer is at: ${time} seconds`;
