@@ -6,18 +6,9 @@ chrome.runtime.onInstalled.addListener((details) => {
   });
   chrome.contextMenus.onClicked.addListener((event) => {
     console.log(event);
-  });
-  chrome.contextMenus.create({
-    title: 'Test context Menu 1',
-    id: 'contextMenu2',
-    parentId: 'contextMenu1',
-    contexts: ['page', 'selection'],
-  });
-  chrome.contextMenus.create({
-    title: 'Test context Menu 2',
-    id: 'contextMenu3',
-    parentId: 'contextMenu1',
-    contexts: ['page', 'selection'],
+    chrome.tabs.create({
+      url: `https://www.imdb.com/find?q=${event.selectionText}&ref_=nv_sr_sm`,
+    });
   });
 });
 
