@@ -1,9 +1,7 @@
 const text = [];
 const aTags = document.getElementsByTagName('a');
 for (const tag of aTags) {
-  if (tag.textContent.includes('i')) {
     text.push(tag.textContent);
-  }
 }
 
 chrome.storage.local.set({
