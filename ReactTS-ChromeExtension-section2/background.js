@@ -17,7 +17,7 @@ chrome.alarms.onAlarm.addListener((alarm) => {
       const notificationTime = res.notificationTime ?? 1000;
       if (time % notificationTime === 0) {
         this.registration.showNotification('Chrome Timer Extension', {
-          body: `${notificationTime} second has passed!`,
+          body: `${notificationTime} seconds has passed!`,
           icon: 'icon.png',
         });
       }
