@@ -5,6 +5,7 @@ const OPEN_WEATHER_API_KEY = openWeather.apiKey;
 export interface OpenWeatherData {
   name: string;
   main: {
+    feels_like: number;
     humidity: number;
     pressure: number;
     temp: number;

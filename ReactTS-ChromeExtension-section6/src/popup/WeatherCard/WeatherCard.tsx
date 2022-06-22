@@ -1,16 +1,36 @@
-import React, { useEffect } from 'react';
-import { fetchOpenWeatherData } from '../../utils/api';
+import React, { useEffect, useState } from 'react';
+import { Box, Card, CardContent, Typography } from '@material-ui/core';
+import { fetchOpenWeatherData, OpenWeatherData } from '../../utils/api';
 
 const WeatherCard: React.FC<{ city: string }> = ({ city }) => {
+  const [weatherData, setWeatherData] = useState<OpenWeatherData | null>(null);
   useEffect(() => {
     fetchOpenWeatherData(city)
       .then((data) => {
-        console.log(data);
+        setWeatherData(data);
       })
       .catch((err) => console.log(err));
   }, [city]);
 
-  return <div>{city}</div>;
+  if (!weatherData) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <Box mx={'4px'} my={'16px'}>
+      <Card>
+        <CardContent>
+          <Typography variant='h5'>{weatherData.name}</Typography>
+          <Typography variant='body1'>
+            {Math.round(weatherData.main.temp)}
+          </Typography>
+          <Typography variant='body1'>
+            Feels like: {Math.round(weatherData.main.feels_like)}
+          </Typography>
+        </CardContent>
+      </Card>
+    </Box>
+  );
 };
 
 export default WeatherCard;
