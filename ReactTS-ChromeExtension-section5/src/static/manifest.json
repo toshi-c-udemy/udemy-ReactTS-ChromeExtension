@@ -1,11 +1,11 @@
 {
-  "manifest_version": 3,
   "name": "React Extension",
   "description": "Chrome Extension in React!",
   "version": "1.0.0",
+  "manifest_version": 3,
   "icons": {
     "16": "icon.png",
-    "46": "icon.png",
+    "48": "icon.png",
     "128": "icon.png"
   },
   "action": {
@@ -13,6 +13,7 @@
     "default_title": "React Extension",
     "default_icon": "icon.png"
   },
+  "permissions": ["storage"],
   "options_page": "options.html",
   "background": {
     "service_worker": "background.js"
