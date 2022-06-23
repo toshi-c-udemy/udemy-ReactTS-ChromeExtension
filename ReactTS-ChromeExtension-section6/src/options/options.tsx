@@ -35,6 +35,13 @@ const App: React.FC<{}> = () => {
     });
   };
 
+  const handleAutoOverlayChange = (hasAutoOverlay: boolean) => {
+    setOptions({
+      ...options,
+      hasAutoOverlay,
+    });
+  };
+
   const handleSaveButtonClick = () => {
     setFormState('saving');
     setStoredOptions(options).then(() => {
@@ -44,18 +51,11 @@ const App: React.FC<{}> = () => {
     });
   };
 
-  const handleAutoOverlayChange = (hasAutoOverlay: boolean) => {
-    setOptions({
-      ...options,
-      hasAutoOverlay,
-    });
-  };
-
   if (!options) {
     return null;
   }
 
-  const isFieldDisabled = formState === 'saving';
+  const isFieldsDisabled = formState === 'saving';
 
   return (
     <Box mx='10%' my='2%'>
@@ -72,7 +72,7 @@ const App: React.FC<{}> = () => {
                 placeholder='Enter a home city name'
                 value={options.homeCity}
                 onChange={(event) => handleHomeCityChange(event.target.value)}
-                disabled={isFieldDisabled}
+                disabled={isFieldsDisabled}
               />
             </Grid>
             <Grid item>
@@ -83,7 +83,7 @@ const App: React.FC<{}> = () => {
                 color='primary'
                 checked={options.hasAutoOverlay}
                 onChange={(event, checked) => handleAutoOverlayChange(checked)}
-                disabled={isFieldDisabled}
+                disabled={isFieldsDisabled}
               />
             </Grid>
             <Grid item>
@@ -91,7 +91,7 @@ const App: React.FC<{}> = () => {
                 variant='contained'
                 color='primary'
                 onClick={handleSaveButtonClick}
-                disabled={isFieldDisabled}
+                disabled={isFieldsDisabled}
               >
                 {formState === 'ready' ? 'Save' : 'Saving...'}
               </Button>

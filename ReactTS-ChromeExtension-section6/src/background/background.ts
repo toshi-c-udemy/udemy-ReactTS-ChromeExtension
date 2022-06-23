@@ -21,7 +21,7 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 
   chrome.alarms.create({
-    periodInMinutes: 1 / 6,
+    periodInMinutes: 60,
   });
 });
 
@@ -33,7 +33,7 @@ chrome.contextMenus.onClicked.addListener((event) => {
 
 chrome.alarms.onAlarm.addListener(() => {
   getStoredOptions().then((options) => {
-    if (options.homeCity == '') {
+    if (options.homeCity === '') {
       return;
     }
     fetchOpenWeatherData(options.homeCity, options.tempScale).then((data) => {
