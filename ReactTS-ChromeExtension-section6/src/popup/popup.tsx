@@ -10,7 +10,7 @@ import {
   setStoredCities,
   setStoredOptions,
   getStoredCities,
-  getStorageOptions,
+  getStoredOptions,
 } from '../utils/storage';
 
 const App: React.FC<{}> = () => {
@@ -20,7 +20,7 @@ const App: React.FC<{}> = () => {
 
   useEffect(() => {
     getStoredCities().then((cities) => setCities(cities));
-    getStorageOptions().then((options) => setOptions(options));
+    getStoredOptions().then((options) => setOptions(options));
   }, []);
 
   const handleCityButtonClick = () => {
