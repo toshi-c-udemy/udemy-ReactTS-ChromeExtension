@@ -5,14 +5,22 @@ import { Add as AddIcon } from '@material-ui/icons';
 import 'fontsource-roboto';
 import './popup.css';
 import WeatherCard from './WeatherCard';
-import { setStoredCities, getStoredCities } from '../utils/storage';
+import { LocalStorageOptions } from '../utils/storage';
+import {
+  setStoredCities,
+  setStoredOptions,
+  getStoredCities,
+  getStorageOptions,
+} from '../utils/storage';
 
 const App: React.FC<{}> = () => {
   const [cities, setCities] = useState<string[]>([]);
   const [cityInput, setCityInput] = useState<string>('');
+  const [options, setOptions] = useState<LocalStorageOptions>(null);
 
   useEffect(() => {
     getStoredCities().then((cities) => setCities(cities));
+    getStorageOptions().then((options) => setOptions(options));
   }, []);
 
   const handleCityButtonClick = () => {
@@ -33,6 +41,10 @@ const App: React.FC<{}> = () => {
       setCities(updatedCities);
     });
   };
+
+  if (!options) {
+    return null;
+  }
 
   return (
     <Box mx={'8px'} my={'16px'}>
