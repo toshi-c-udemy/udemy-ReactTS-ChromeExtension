@@ -14,7 +14,7 @@
     "action": { "type": "block" },
     "condition": {
       "urlFilter": "googleadservices",
-      "resourceTypes": ["image"]
+      "resourceTypes": ["image", "xmlhttprequest"]
     }
   },
   {
@@ -23,7 +23,7 @@
     "action": { "type": "block" },
     "condition": {
       "urlFilter": "doubleclick",
-      "resourceTypes": ["image"]
+      "resourceTypes": ["image", "xmlhttprequest"]
     }
   }
 ]
