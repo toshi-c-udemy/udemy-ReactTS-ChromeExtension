@@ -1,6 +1,5 @@
 # React & TypeScript Chrome Extension Development [2022]
-
-
+[**Udemy React & TypeScript Chrome Extension Development [2022]**](https://www.udemy.com/course/chrome-extension/)
 
 ![course](.README.assets/course.jpeg)
 
