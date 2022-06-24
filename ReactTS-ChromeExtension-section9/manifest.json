@@ -2,5 +2,13 @@
   "manifest_version": 3,
   "version": "1.0.0",
   "name": "Watermelon Theme",
-  "theme": {}
+  "theme": {
+    "images": {
+      "theme_ntp_background": "images/watermelons.jpg"
+    },
+    "properties": {
+      "ntp_background_alignment": "bottom",
+      "ntp_background_repeat": "repeat"
+    }
+  }
 }
